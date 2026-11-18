@@ -87,10 +87,16 @@ h3{font-size:1.8rem}
 .brand svg{width:1.5rem;height:1.5rem;color:var(--sage-dark);transform:rotate(-12deg)}
 .brand:hover{color:var(--tomato)}
 .site-nav{white-space:nowrap;display:flex;gap:.55rem}
-.site-nav a{font-family:var(--hand);font-weight:600;font-size:1.4rem;line-height:1.1;text-decoration:none;color:var(--walnut);padding:.1rem .6rem;border-radius:10px}
+.site-nav a{font-family:var(--hand);font-weight:600;font-size:1.4rem;line-height:1.1;text-decoration:none;color:var(--walnut);padding:.1rem .6rem;border-radius:10px;display:inline-flex;align-items:center;min-height:44px}
+.brand{min-height:44px}
 .site-nav a:hover{color:var(--tomato)}
+.site-nav a.subscribe{background:var(--tomato);color:#fff;border:2px solid #FFF8E8;border-radius:999px;box-shadow:0 2px 0 var(--tomato-dark), 0 0 0 3px var(--tomato)}
+.site-nav a.subscribe:hover{background:var(--tomato-dark);color:#fff}
+.site-nav a.subscribe:focus-visible{outline:3px solid #2E2118;outline-offset:4px}
 @media (min-width:760px){.brand{font-size:2.3rem;padding:.2rem 1rem}.site-nav a{font-size:1.7rem;padding:.15rem .85rem}.site-nav{gap:.9rem}}
 @media (max-width:420px){.brand{font-size:1.6rem;padding:.1rem .55rem}.brand svg{display:none}.site-nav{gap:.35rem}.site-nav a{font-size:1.3rem;padding:.05rem .45rem}}
+@media (max-width:560px){.site-head .wrap{flex-wrap:wrap;justify-content:center;row-gap:.6rem}.site-nav{flex-wrap:wrap;justify-content:center;row-gap:.55rem;white-space:normal}.site-nav a{white-space:nowrap}}
+@media (max-width:420px){.site-head .wrap{padding-left:.5rem;padding-right:.5rem}.site-nav{gap:.28rem;row-gap:.5rem}.site-nav a{font-size:1.12rem;padding:0 .36rem;border-width:1.5px;box-shadow:0 2px 0 rgba(90,58,34,.35), 0 0 0 2px #FFF8E8}.site-nav a.subscribe{box-shadow:0 2px 0 var(--tomato-dark), 0 0 0 2px var(--tomato)}}
 
 /* ---------- home: handwritten welcome note card ---------- */
 .hero{padding:2.6rem 0 .6rem;display:flex;justify-content:center}
@@ -293,6 +299,21 @@ ol.checklist .num::before{content:counter(step) "."}
 @media (min-width:760px){.tags{padding-right:0}}
 .portrait-slot{display:none}
 .prose p{margin:.8em 0}
+/* contact page */
+.contact-line{font-size:1.2rem;margin:1rem 0 1.4rem}
+.contact-line a{overflow-wrap:anywhere}
+.contact-form{display:grid;gap:1rem;margin:.5rem 0 .5rem;padding:1.1rem 1.1rem 1.2rem;background:#FFFEF7;border:1px solid #E2D0AE;border-radius:4px;box-shadow:0 1px 1px rgba(30,15,5,.15), 0 10px 18px -10px rgba(25,12,4,.35)}
+.contact-form .field{display:grid;gap:.3rem}
+.contact-form label{font-family:var(--hand);font-weight:600;font-size:1.6rem;line-height:1.1;color:var(--walnut)}
+.contact-form input,.contact-form textarea{font:inherit;font-size:1.15rem;width:100%;padding:.7rem .9rem;border:2px solid var(--walnut);border-radius:10px;background:#fff;color:var(--ink);min-height:48px}
+.contact-form textarea{resize:vertical;min-height:9rem;line-height:1.5}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--tomato);box-shadow:0 0 0 4px rgba(178,58,42,.25)}
+.contact-form .hp{position:absolute!important;left:-10000px;width:1px;height:1px;overflow:hidden}
+.send-btn{justify-self:start;background:var(--tomato);color:#fff;font-size:1.15rem;padding:.55rem 1.8rem;box-shadow:0 2px 0 var(--tomato-dark)}
+.send-btn:hover{background:var(--tomato-dark);color:#fff}
+.form-privacy{margin:0;font-size:.9rem;color:var(--muted)}
+.rights-note{margin:1.6rem 0 0;padding-top:.7rem;border-top:1px solid rgba(90,58,34,.35);font-size:.9rem;line-height:1.5;color:var(--muted)}
+.rights-note a{color:var(--muted);overflow-wrap:anywhere}
 
 /* ---------- footer: paper band with a gingham hem ---------- */
 .site-foot{
@@ -322,7 +343,7 @@ blockquote{margin:1rem 0;padding:.6rem 1.1rem;border-left:4px solid var(--tomato
 @media print{
   @page{margin:1.6cm}
   html,body{background:#fff;color:#000;font-size:11.5pt;line-height:1.45}
-  .site-head,.site-nav,.tools,.hint,.crumbs,.tags,.skip,.site-foot,.herb-divider,.gingham,.margin-doodle,.kitchen-scene{display:none!important}
+  .site-head,.site-nav,.tools,.hint,.crumbs,.tags,.skip,.site-foot,.herb-divider,.gingham,.margin-doodle,.kitchen-scene,.subscribe,.members,.contact-form{display:none!important}
   html,body,main{background:#fff!important}
   article.recipe h1{margin-right:0}
   .credit-foot{margin-top:1rem;padding-top:.4rem;max-width:none}
