@@ -182,18 +182,12 @@ h3{font-size:1.8rem}
   background:radial-gradient(circle at 35% 32%, #F4A08C 0 18%, #C9483A 45%, #7A2216 100%);
   box-shadow:2px 4px 3px rgba(25,12,4,.45);
 }
-.card-top{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;flex-wrap:wrap;border-bottom:3px double var(--tomato);padding-bottom:.25rem;margin-bottom:.15rem}
-.rc-label{font-family:var(--serif);font-weight:700;font-size:1rem;letter-spacing:.28em;text-transform:uppercase;color:var(--tomato-dark)}
-.rc-from{font-size:.85rem;font-weight:600;color:var(--muted);white-space:nowrap}
-.rc-name{font-family:var(--hand);font-size:1.35rem;color:var(--walnut);border-bottom:1px solid rgba(90,58,34,.5);padding:0 .5rem 0 .3rem;margin-left:.15rem}
-.card h2{font-size:2.05rem;line-height:1.08;margin:.15rem -1.2rem .15rem;padding:0 1.2rem .3rem;border-bottom:1px solid var(--rule-red);color:var(--ink)}
+.card h2{font-size:2.05rem;line-height:1.08;margin:.2rem -1.2rem .2rem;padding:0 1.2rem .3rem;border-bottom:1px solid var(--rule-red);color:var(--ink)}
 .card h2 a{color:var(--ink);text-decoration:none}
 .card h2 a::after{content:"";position:absolute;inset:0}
 .card h2 a:hover{color:var(--tomato)}
 .card p,.card .meta{margin:0 -1.2rem;padding:0 1.2rem;line-height:1.75rem;background-image:repeating-linear-gradient(to bottom, transparent 0 calc(1.75rem - 1px), var(--rule-blue) calc(1.75rem - 1px) 1.75rem)}
 .card p{color:var(--muted);font-size:1.05rem}
-.card p.card-credit{background:none;line-height:1.35;margin:.1rem 0 .3rem;padding:0;font-family:var(--serif);font-style:italic;font-weight:600;font-size:.92rem;color:var(--muted)}
-.card-credit cite{font-style:italic}
 .meta{display:flex;flex-wrap:wrap;gap:.2rem .9rem;color:var(--tomato-dark);font-size:1.02rem;font-weight:700}
 .tag{display:inline-block;font-size:.92rem;font-weight:700;color:var(--sage-dark);background:#E9EEDC;border:1px solid #A9B996;border-radius:999px;padding:.02rem .65rem}
 .empty{
@@ -232,17 +226,19 @@ article.recipe::before, .sheet::before{left:-1rem;transform:rotate(-26deg)}
 article.recipe::after, .sheet::after{right:-1rem;transform:rotate(24deg)}
 @media (min-width:760px){article.recipe, .sheet{padding:1.6rem 2.6rem 2.6rem;transform:rotate(-.4deg)}}
 .margin-doodle{position:absolute;width:4.6rem;height:auto;right:.7rem;bottom:.6rem;opacity:.95;pointer-events:none}
-@media (min-width:760px){.margin-doodle{width:7.5rem;top:1.1rem;right:1.6rem;bottom:auto}.page-top{margin-right:8.5rem}}
-.page-top{margin-top:.5rem}
-.page-top .rc-label{font-size:1.2rem}
-.page-top .rc-from{font-size:.95rem}
-.page-top .rc-name{font-size:1.6rem}
+@media (min-width:760px){.margin-doodle{width:7.5rem;top:1.1rem;right:1.6rem;bottom:auto}article.recipe h1{margin-right:8rem}}
 article.recipe h1, .sheet h1{color:var(--ink);margin-top:.15em;margin-bottom:.25em}
 .sheet h1{margin-top:.4em;border-bottom:3px double var(--tomato);padding-bottom:.15em}
 
 .crumbs{margin:.1rem 0 0;font-size:1.05rem;font-weight:700}
 .credit{background:#FCEBDD;border-left:5px solid var(--tomato);padding:.7rem 1rem;border-radius:0 8px 8px 0;margin:.6rem 0 1rem;font-size:1.06rem}
 .credit a{overflow-wrap:anywhere}
+/* credit as a quiet footnote at the end of the recipe */
+.credit-foot{margin-top:1.4rem;padding:.7rem 5.5rem 0 0;border-top:1px solid rgba(90,58,34,.35)}
+.credit-foot .credit{background:none;border:0;border-radius:0;padding:0;margin:0;font-size:.9rem;line-height:1.5;color:var(--muted)}
+.credit-foot .credit a{color:var(--muted);text-decoration-color:rgba(92,70,54,.5);text-decoration-thickness:1px}
+.credit-foot .credit a:hover{color:var(--tomato-dark)}
+@media (min-width:760px){.credit-foot{padding-right:0;max-width:40rem}}
 .summary{font-family:var(--serif);font-size:1.15rem;color:var(--muted);font-style:italic;font-weight:600;line-height:1.65}
 .facts{display:flex;flex-wrap:wrap;gap:.6rem;margin:1rem 0;padding:0;list-style:none}
 .facts li{background:var(--butter);border:2px dashed rgba(178,58,42,.6);border-radius:10px;padding:.35rem .9rem;font-weight:700;transform:rotate(-1deg)}
@@ -326,7 +322,10 @@ blockquote{margin:1rem 0;padding:.6rem 1.1rem;border-left:4px solid var(--tomato
 @media print{
   @page{margin:1.6cm}
   html,body{background:#fff;color:#000;font-size:11.5pt;line-height:1.45}
-  .site-head,.site-nav,.tools,.hint,.crumbs,.tags,.skip,.site-foot .nav,.herb-divider,.gingham,.margin-doodle,.kitchen-scene,.card-top{display:none!important}
+  .site-head,.site-nav,.tools,.hint,.crumbs,.tags,.skip,.site-foot,.herb-divider,.gingham,.margin-doodle,.kitchen-scene{display:none!important}
+  html,body,main{background:#fff!important}
+  article.recipe h1{margin-right:0}
+  .credit-foot{margin-top:1rem;padding-top:.4rem;max-width:none}
   .wrap{max-width:none;padding:0}
   article.recipe, .sheet{border:0;padding:0;margin:0;background:#fff;border-radius:0}
   h1,h2,h3{font-family:var(--serif);font-weight:700;color:#000}
@@ -335,6 +334,8 @@ blockquote{margin:1rem 0;padding:.6rem 1.1rem;border-left:4px solid var(--tomato
   .ingredients{border:0;padding:0;margin:0;background:none}
   .ingredients h2,.ingredients .checklist li{margin-left:0;margin-right:0;padding-left:0;padding-right:0;border-color:#999}
   .credit,.facts li,.notes,blockquote{background:none;border-color:#999}
+  .credit-foot{padding-right:0;border-color:#999}
+  .credit-foot .credit,.credit-foot .credit a{color:#000;font-size:9.5pt}
   .notes{border-left-color:#666}
   .facts b,.notes h2,.hand-label,.empty .hand,ol.checklist .num,.subhead{color:#000;font-family:var(--serif);font-size:inherit}
   .credit a::after{content:" (" attr(href) ")";color:#000}
@@ -344,4 +345,25 @@ blockquote{margin:1rem 0;padding:.6rem 1.1rem;border-left:4px solid var(--tomato
   .checklist input:checked + span{text-decoration:none;color:#000}
   .checklist li{border:0;break-inside:avoid}
   .site-foot{margin-top:1.5rem;padding-top:.5rem;font-size:9pt;background:#fff}
+}
+
+/* Print: pure black on white (Tim, 18 Nov). Overrides every colour, tint, rule and image above. */
+@media print{
+  *, *::before, *::after{
+    -webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;
+    color:#000!important;background:transparent none!important;background-color:transparent!important;background-image:none!important;
+    border-color:#000!important;outline-color:#000!important;box-shadow:none!important;text-shadow:none!important;filter:none!important;
+    text-decoration-color:#000!important;caret-color:#000!important;accent-color:#000!important;
+  }
+  html, body{background:#fff!important}
+  a{text-decoration:none!important}
+  .credit a::after{content:" (" attr(href) ")"}
+  svg, img, .card::before, .ingredients::before, article.recipe::before, article.recipe::after, .sheet::before, .sheet::after, .site-head::after{display:none!important}
+  .ingredients h2, article.recipe h1, .sheet h1{border-bottom:1px solid #000!important}
+  .ingredients .checklist li, .checklist li{border:0!important}
+  .facts li{border:1px solid #000!important;transform:none!important}
+  .notes{border:0!important;border-left:2px solid #000!important}
+  .credit-foot{border-top:1px solid #000!important}
+  .checklist input{border:1px solid #000!important;background:#fff!important}
+  .checklist input:checked::after{border-color:#000!important}
 }
