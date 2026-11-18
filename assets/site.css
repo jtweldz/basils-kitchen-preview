@@ -120,6 +120,10 @@ h3{font-size:1.8rem}
 .hero h1{font-size:3.6rem;line-height:1;margin:.1em 0 .15em;color:var(--ink)}
 .hero .tagline{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--muted);margin:.1rem auto .3rem;font-size:1.18rem;max-width:30rem}
 .kitchen-scene{display:block;width:min(17rem,90%);height:auto;margin:.5rem auto 0}
+.note-card.title-only{padding-top:1.9rem;padding-bottom:1.3rem}
+.note-card.title-only h1{margin:.05em 0 .2em}
+.note-card.title-only .kitchen-scene{margin-top:.2rem}
+@media (min-width:760px){.note-card.title-only{padding-top:2.3rem;padding-bottom:1.6rem}}
 @media (min-width:760px){.hero{padding-top:3.4rem}.note-card{padding:1.8rem 2.4rem 1.2rem 3.6rem}.hero h1{font-size:5.4rem}.hero .welcome{font-size:2.3rem}.hero .tagline{font-size:1.32rem}.kitchen-scene{width:19rem}}
 
 .herb-divider{display:flex;justify-content:center;align-items:center;color:var(--tomato);margin:.6rem 0 .2rem;pointer-events:none}
