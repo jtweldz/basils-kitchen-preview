@@ -10,6 +10,7 @@
     var cards = Array.prototype.slice.call(list.querySelectorAll(".card-item"));
     var q = document.getElementById("q");
     var countEl = document.getElementById("count");
+    var emptyEl = document.getElementById("empty-search");
     var state = { course: "", era: "", weeknight: false };
 
     function norm(s) { return (s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
@@ -27,6 +28,8 @@
         if (ok) shown++;
       });
       countEl.textContent = shown === 1 ? "1 recipe" : shown + " recipes";
+      if (emptyEl) emptyEl.hidden = shown !== 0;
+      list.hidden = shown === 0;
     }
 
     document.querySelectorAll(".chip").forEach(function (btn) {
