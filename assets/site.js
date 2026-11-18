@@ -11,23 +11,31 @@
     var q = document.getElementById("q");
     var countEl = document.getElementById("count");
     var emptyEl = document.getElementById("empty-search");
-    var state = { course: "", era: "", weeknight: false };
+    var state = { course: "", era: "", weeknight: false, facet: "" };
 
-    function norm(s) { return (s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
+    function norm(s) {
+      return (s || "")
+        .toLowerCase()
+        .replace(/[\u2018\u2019\u201A\u201B\u2032]/g, "'")
+        .replace(/[\u201C\u201D\u201E\u201F\u2033]/g, '"')
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+    }
 
     function apply() {
-      var terms = norm(q.value).split(/\s+/).filter(Boolean);
+      var terms = norm(q && q.value || "").split(/\s+/).filter(Boolean);
       var shown = 0;
       cards.forEach(function (li) {
-        var hay = li.getAttribute("data-search");
+        var hay = norm(li.getAttribute("data-search"));
         var ok = terms.every(function (t) { return hay.indexOf(t) !== -1; });
-        if (ok && state.course) ok = li.getAttribute("data-course").split("|").indexOf(state.course) !== -1;
+        if (ok && state.course) ok = (li.getAttribute("data-course") || "").split("|").indexOf(state.course) !== -1;
         if (ok && state.era) ok = li.getAttribute("data-era") === state.era;
         if (ok && state.weeknight) ok = li.getAttribute("data-weeknight") === "yes";
+        if (ok && state.facet) ok = (li.getAttribute("data-facet") || "").split("|").indexOf(state.facet) !== -1;
         li.hidden = !ok;
         if (ok) shown++;
       });
-      countEl.textContent = shown === 1 ? "1 recipe" : shown + " recipes";
+      if (countEl) countEl.textContent = shown === 1 ? "1 recipe" : shown + " recipes";
       if (emptyEl) emptyEl.hidden = shown !== 0;
       list.hidden = shown === 0;
     }
@@ -48,9 +56,26 @@
         apply();
       });
     });
-    q.addEventListener("input", apply);
+    if (q) q.addEventListener("input", apply);
     var params = new URLSearchParams(location.search);
-    if (params.get("q")) q.value = params.get("q");
+    if (q && params.get("q")) q.value = params.get("q");
+    function press(group, val) {
+      var btn = document.querySelector('.chip[data-group="' + group + '"][data-value="' + val + '"]');
+      if (!btn) return;
+      if (group === "weeknight") {
+        state.weeknight = val === "yes";
+        btn.setAttribute("aria-pressed", String(state.weeknight));
+      } else {
+        state[group] = val;
+        document.querySelectorAll('.chip[data-group="' + group + '"]').forEach(function (b) {
+          b.setAttribute("aria-pressed", String(b === btn));
+        });
+      }
+    }
+    if (params.get("course")) press("course", params.get("course").toLowerCase());
+    if (params.get("era")) press("era", params.get("era").toLowerCase());
+    if (params.get("weeknight") === "yes" || params.get("weeknight") === "true") press("weeknight", "yes");
+    if (params.get("facet")) press("facet", params.get("facet").toLowerCase());
     apply();
   }
 

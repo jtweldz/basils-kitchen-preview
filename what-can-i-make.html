@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What&#x27;s in your kitchen? · Basil&#x27;s Kitchen</title>
+<meta name="description" content="See which Basil&#x27;s Kitchen recipes you can make with what&#x27;s already in your kitchen.">
+<meta name="theme-color" content="#A24B32">
+
+<link rel="icon" href="/basils-kitchen-preview/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/basils-kitchen-preview/fonts/caveat-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/basils-kitchen-preview/fonts/lora-latin-600-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/basils-kitchen-preview/assets/site.css">
+<link rel="preload" href="/basils-kitchen-preview/assets/ingredients-index.json" as="fetch" crossorigin data-pantry-index>
+<script src="/basils-kitchen-preview/assets/pantry.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head"><div class="gingham" aria-hidden="true"></div><div class="wrap wide">
+<a class="brand" href="/basils-kitchen-preview/"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M8 24C8 13 15 7 25 7c0 10-6 17-17 17z" fill="currentColor"/><path d="M9 23 20 12" stroke="#F8F1E3" stroke-width="1.6" stroke-linecap="round"/></svg><span>Basil&#x27;s Kitchen</span></a>
+<nav class="site-nav" aria-label="Main"><a href="/basils-kitchen-preview/recipes/">Recipes</a><a href="/basils-kitchen-preview/about.html">About</a><a href="/basils-kitchen-preview/contact.html">Contact</a></nav>
+</div></header>
+<main id="main">
+<div class="wrap wide pantry-page" id="pantry-root" data-index="/assets/ingredients-index.json">
+<div class="listing-panel">
+<p class="crumbs"><a href="/basils-kitchen-preview/">Home</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">What&#x27;s in your kitchen?</span></p>
+<header class="listing-head"><h1>What&#39;s in your kitchen?</h1>
+<p class="listing-dek">Tap what you have. We&#39;ll line up the recipes you can make.</p>
+</header>
+</div>
+<div class="pantry-board">
+<p class="pantry-privacy">Your pantry list stays on this device. It is not sent to us.</p>
+<p class="pantry-banner" role="note">We assume you have salt, pepper and water.
+<label><input type="checkbox" id="assume-staples" checked> Salt, pepper and water</label>
+<label><input type="checkbox" id="assume-oils" checked> Olive and cooking oils too</label>
+</p>
+<div class="pantry-search">
+<label for="pantry-q">Add an ingredient</label>
+<input id="pantry-q" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="pantry-suggest" placeholder="Type a name or paste a list" autocomplete="off">
+<ul class="pantry-suggest" id="pantry-suggest" role="listbox" hidden></ul>
+</div>
+<div id="pantry-selected" class="pantry-selected" aria-label="Ingredients you have"></div>
+<div class="pantry-actions">
+<button type="button" class="btn" id="pantry-clear">Clear list</button>
+<button type="button" class="btn" id="pantry-share">Copy share link</button>
+<button type="button" class="btn" id="pantry-copy">Copy ingredients</button>
+</div>
+<div class="pantry-exclude">
+<label for="pantry-exclude-add">Not tonight</label>
+<select id="pantry-exclude-add">
+<option value="">Hide recipes that use…</option>
+</select>
+<div id="pantry-exclude-list" class="pantry-chips"></div>
+</div>
+<div id="kitchen-basics"></div>
+<div id="pantry-groups"></div>
+<div id="pantry-focus"></div>
+</div>
+<div class="pantry-bar" id="pantry-bar">
+<p id="pantry-count" aria-live="polite">Pick an ingredient to see what you can make.</p>
+<a class="pantry-jump" href="#pantry-results">Show recipes ↓</a>
+<label><input type="checkbox" id="missing-one"> Missing one ingredient</label>
+</div>
+<div id="if-you-had" class="pantry-ideas"></div>
+<div id="pantry-results">
+<p class="empty" id="pantry-empty"><span class="hand">From the stove</span>Tap what you have in the kitchen, and we&#39;ll line up the recipes you can make.</p>
+<div id="pantry-list"></div>
+</div>
+<div class="ad-slot" data-slot="pantry-1" hidden></div>
+</div>
+</main>
+<footer class="site-foot"><div class="gingham" aria-hidden="true"></div><div class="wrap wide">
+<p class="contact">Questions or comments? <a href="mailto:basilthechef@mail.grokbot.com">Email here</a></p>
+<p>Check ingredients for allergies, and cook meats to safe internal temperatures.</p>
+<p class="nav"><a href="/basils-kitchen-preview/recipes/">Recipes</a> · <a href="/basils-kitchen-preview/about.html">About</a> · <a href="/basils-kitchen-preview/contact.html">Contact</a></p>
+</div></footer>
+<script src="/basils-kitchen-preview/assets/site.js" defer></script>
+</body>
+</html>
