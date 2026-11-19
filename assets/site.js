@@ -130,3 +130,15 @@
     }
   }
 })();
+
+(function () {
+  var menu = document.querySelector(".nav-menu");
+  var box = document.getElementById("nav-toggle");
+  if (!menu || !box) return;
+  document.addEventListener("click", function (ev) {
+    if (box.checked && !menu.contains(ev.target)) box.checked = false;
+  });
+  document.addEventListener("keydown", function (ev) {
+    if (ev.key === "Escape" && box.checked) box.checked = false;
+  });
+})();
